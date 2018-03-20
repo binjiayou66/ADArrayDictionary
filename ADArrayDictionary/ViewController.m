@@ -20,7 +20,7 @@
     
     ADArrayDictionary *ad = [[ADArrayDictionary alloc] init];
     [ad addObject:@"aaa" forKey:@"111"];
-    [ad addObjects:@[@"bbb", @"ccc", @"ddd"] forKeys:@[@"222", @"333", @"444"]];
+    [ad addObjects:@[@"bbb", @"ccc", @"ddd"] forKeys:@[@"zzz222", @"333", @"444"]];
 
     NSLog(@"keys == %@", ad.allKeys);
     NSLog(@"values == %@", ad.allValues);
@@ -35,6 +35,12 @@
     NSLog(@"%@", ad);
     [ad replaceObjectAtIndex:2 withObject:@"new new new ccc" forKey:@"new new 333"];
     NSLog(@"%@", ad);
+    
+    [ad sortedByKey];
+    NSLog(@"sortedByKey == %@", ad);
+    [ad sortedByValue];
+    NSLog(@"sortedByValue == %@", ad);
+    
     [ad removeObjectForKey:@"new new 333"];
     NSLog(@"%@", ad);
     [ad removeObjectAtIndex:2];

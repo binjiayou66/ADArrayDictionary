@@ -139,14 +139,20 @@ typedef NS_ENUM(NSUInteger, ADArrayDictionarySeries) {
 
 - (nullable ADArrayDictionary *)sortedByKey
 {
-    
-    return nil;
+    if (self.dataSource.count <= 0) return nil;
+    [self.dataSource sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1[ADArrayDictionarySeriesKey] compare:obj2[ADArrayDictionarySeriesKey]];
+    }];
+    return self.dataSource.copy;
 }
 
 - (nullable ADArrayDictionary *)sortedByValue
 {
-    
-    return nil;
+    if (self.dataSource.count <= 0) return nil;
+    [self.dataSource sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        return [obj1[ADArrayDictionarySeriesValue] compare:obj2[ADArrayDictionarySeriesValue]];
+    }];
+    return self.dataSource.copy;
 }
 
 #pragma mark - super
