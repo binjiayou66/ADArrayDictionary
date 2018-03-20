@@ -153,7 +153,7 @@ typedef NS_ENUM(NSUInteger, ADArrayDictionarySeries) {
 
 - (NSString *)description
 {
-    NSMutableString *des = [NSMutableString stringWithString:@"\n[ \n"];
+    NSMutableString *des = [NSMutableString stringWithFormat:@"\nThere are %lu items. \n[ \n", self.count];
     [self.dataSource enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [des appendFormat:@"    %lu : %@ : %@,\n", idx, obj[ADArrayDictionarySeriesKey], obj[ADArrayDictionarySeriesValue]];
     }];
