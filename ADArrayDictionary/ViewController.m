@@ -28,6 +28,23 @@
     NSLog(@"the 99th item == %@", [ad objectAtIndex:99]);
     NSLog(@"object with key 333 == %@", [ad objectForKey:@"333"]);
     NSLog(@"object with key 666 == %@", [ad objectForKey:@"666"]);
+    
+    [ad insertObject:@"new ccc" atIndex:2 forKey:@"new 333"];
+    NSLog(@"%@", ad);
+    [ad replaceObjectAtIndex:2 withObject:@"new new ccc"];
+    NSLog(@"%@", ad);
+    [ad replaceObjectAtIndex:2 withObject:@"new new new ccc" forKey:@"new new 333"];
+    NSLog(@"%@", ad);
+    [ad removeObjectForKey:@"new new 333"];
+    NSLog(@"%@", ad);
+    [ad removeObjectAtIndex:2];
+    NSLog(@"%@", ad);
+    [ad exchangeObjectAtIndex:0 withObjectAtIndex:1];
+    NSLog(@"%@", ad);
+    [ad removeLastObject];
+    NSLog(@"%@", ad);
+    [ad removeAllObjects];
+    NSLog(@"%@", ad);
 }
 
 

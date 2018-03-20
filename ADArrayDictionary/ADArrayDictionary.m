@@ -149,6 +149,18 @@ typedef NS_ENUM(NSUInteger, ADArrayDictionarySeries) {
     return nil;
 }
 
+#pragma mark - super
+
+- (NSString *)description
+{
+    NSMutableString *des = [NSMutableString stringWithString:@"\n[ \n"];
+    [self.dataSource enumerateObjectsUsingBlock:^(NSArray * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [des appendFormat:@"    %lu : %@ : %@,\n", idx, obj[ADArrayDictionarySeriesKey], obj[ADArrayDictionarySeriesValue]];
+    }];
+    [des appendString:@"]"];
+    return des.copy;
+}
+
 #pragma mark - getter and setter
 
 - (NSUInteger)count
